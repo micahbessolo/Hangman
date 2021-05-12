@@ -1,5 +1,5 @@
 import random
-from words import word_list
+from random_words import word_list
 
 word = random.choice(word_list)
 
@@ -10,6 +10,8 @@ def play():
     letter_list = []
     word_list =[]
     while guess_limit > 0:
+        print("\n")
+        #print("\n")
         print(fr"This is a your word: " + incomplete_word)
         guess = input("make a guess: ")
         if len(guess) == 1 and guess.isalpha():
@@ -25,7 +27,9 @@ def play():
                     incomplete_word = incomplete_word[:index] + guess + incomplete_word[index + 1:]
                 if incomplete_word == word:
                     print("CONGRATULATIONS, YOU WON!!!!")
+                    return
                     break
+                print("Current Word " + incomplete_word)
             else:
                 print("sorry, there is no", guess, "in the word")
                 letter_list.append(guess)
@@ -33,6 +37,7 @@ def play():
         elif len(guess) == len(word) and guess.isalpha():
             if guess == word:
                 print("CONGRATULATIONS, YOU WON!!!!")
+                return
                 break
             elif guess in word_list:
                 print("you already guessed this word")
@@ -41,5 +46,7 @@ def play():
         else:
             print("This is an invalid guess")
             guess_limit -= 1
+    print("\n You exceeded maximum number of attempts. Program terminates")
+    print("The Answer was: " + word)
 
 play()
