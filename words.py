@@ -1,0 +1,1 @@
+word_list = ['unhealthy', 'agree', 'frighten', 'learn', 'pretend', 'ambiguous', 'concern', 'oil', 'disclose', 'jazz']
